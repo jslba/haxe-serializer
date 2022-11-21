@@ -27,8 +27,9 @@ The specification of the serialization format can be found [here][03].
    - StringMap (haxe.ds.StringMap)
    - Enum (experimental)
    - Class (experimental)
- - Unsupported format :
-   - custom
+
+**List of unsupported formats**
+ - custom
 
 ## Static methods
 ```haxe
