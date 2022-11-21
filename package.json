@@ -1,0 +1,15 @@
+{
+	"name": "haxe-serializer",
+	"version": "0.0.1",
+	"description": "My Own Implementation of haxe.Serializer",
+	"main": "source/index.js",
+	"keywords": [
+		"haxe"
+	],
+	"author": "Angelisium",
+	"license": "MIT",
+	"dependencies": {
+		"haxe-basecode": "^0.0.1",
+		"haxe-type": "^0.0.2"
+	}
+}
