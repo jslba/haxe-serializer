@@ -1,4 +1,4 @@
-const { List, Bytes, IntMap, StringMap, ObjectMap, Enum, Class } = require('haxe-type');
+const { List, Bytes, IntMap, StringMap, Enum, Class } = require('haxe-type');
 const BaseCode = require('haxe-basecode');
 
 class Serializer {
@@ -109,8 +109,8 @@ class Serializer {
 			if(o instanceof Class && k == '__name__') {
 				continue;
 			}
-			if(o instanceof ObjectMap) {}
-			else if(o instanceof Array) {
+			/* if(o instanceof ObjectMap) {} else */
+			if(o instanceof Array) {
 				let t = this.typeof(v);
 				if(t == "Null") {
 					consecutive_null++;
@@ -134,7 +134,7 @@ class Serializer {
 		switch (true) {
 			case o instanceof Class		: return `c${buffer}g`;
 			case o instanceof IntMap	: return `q${buffer}h`;
-			case o instanceof ObjectMap	: return `M${buffer}h`;
+			// case o instanceof ObjectMap	: return `M${buffer}h`;
 			case o instanceof StringMap	: return `b${buffer}h`;
 			case o instanceof List		: return `l${buffer}h`;
 			case o instanceof Array		: return `a${buffer}h`;
