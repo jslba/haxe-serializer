@@ -23,12 +23,12 @@ The specification of the serialization format can be found [here][03].
    - List (haxe.ds.List)
    - Bytes (haxe.io.Bytes)
    - IntMap (haxe.ds.IntMap)
-   - ObjectMap (haxe.ds.ObjectMap)
    - StringMap (haxe.ds.StringMap)
    - Enum (experimental)
    - Class (experimental)
 
 **List of unsupported formats**
+ - ObjectMap (haxe.ds.ObjectMap)
  - custom
 
 ## Static methods
