@@ -4,7 +4,7 @@
 	"description": "My Own Implementation of haxe.Serializer",
 	"main": "source/index.js",
 	"scripts": {
-		"test": "jest"
+		"test": "jest --config=test/jest.config.js"
 	},
 	"repository": {
 		"type": "git",
