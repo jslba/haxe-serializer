@@ -1,14 +1,14 @@
 {
 	"name": "haxe-serializer",
 	"version": "0.0.3",
-	"description": "My Own Implementation of haxe.Serializer",
+	"description": "An implementation of haxe.Serializer",
 	"main": "source/index.js",
 	"scripts": {
 		"test": "jest --config=test/jest.config.js"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/jshlba/haxe-serializer.git"
+		"url": "git+https://github.com/jslba/haxe-serializer.git"
 	},
 	"keywords": [
 		"haxe"
@@ -16,9 +16,9 @@
 	"author": "Angelisium",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/jshlba/haxe-serializer/issues"
+		"url": "https://github.com/jslba/haxe-serializer/issues"
 	},
-	"homepage": "https://github.com/jshlba/haxe-serializer",
+	"homepage": "https://github.com/jslba/haxe-serializer",
 	"dependencies": {
 		"haxe-basecode": "^0.0.2",
 		"haxe-type": "^0.0.3"
