@@ -1,4 +1,9 @@
-# [Serializer][01] implement of [haxe.Serializer][02]
+# [Serializer][index] implement of [haxe.Serializer][02]
+
+![npm](https://img.shields.io/npm/v/haxe-serializer?color=blue&style=flat)
+![tests](https://img.shields.io/static/v1?label=tests&message=23%20passed&color=brightgreen&style=flat)
+![GitHub](https://img.shields.io/github/license/jslba/haxe-serializer?style=flat)
+
 The Serializer  class can be used to encode values and  objects into a `String`,
 from which the `Unserializer` class can recreate the original representation.   
 This class can be used in two ways :
@@ -31,67 +36,90 @@ The specification of the serialization format can be found [here][03].
  - ObjectMap (haxe.ds.ObjectMap)
  - custom
 
-## Static methods
-```haxe
-/* Serializes `data` and returns the `String` representation. */
-static serialize(data: Any): String
-```
+> **Note**   
+> If you are looking  for how to  use it, you  can look at some  examples in the
+> [unit tests][unittests].
+
 ## Constructor
-```haxe
-new Serializer(useCache?: Boolean, useEnumIndex?: Boolean)
+
+```hx
+new Serializer(?useCache: Boolean = false, ?useEnumIndex: Boolean = false)
 ```
+
 ## Variables
-```haxe
-/* The individual cache setting for `this` Serializer instance. */
-USE_CACHE: Boolean
+
+```hx
+// cache setting for `this` Serializer instance.
+public USE_CACHE: Boolean
 ```
-```haxe
-/* The individual enum index setting for `this` Serializer instance. */
+
+```hx
+// enum index setting for `this` Serializer instance.
 USE_ENUM_INDEX: Boolean
 ```
-```haxe
-/* The individual `String` cache for `this` Serializer instance. */
+
+```hx
+// `String` cache for `this` Serializer instance.
 StringCache: Array
 ```
-```haxe
-/* The individual `Object` cache for `this` Serializer instance. */
+
+```hx
+// `Object` cache for `this` Serializer instance.
 ObjectCache: Array
 ```
+
 ## Methods
-```haxe
-/* Serializes `data` */
-run(data: Any): String
+
+```hx
+// Serializes `data` and returns the `String` representation.
+static serialize(data: Mixed): String
 ```
 
-# Some examples of use
-```js
-// Classic use
-Serializer.serialize("Sample"); // ouput : "y6:Sample"
-```
-```js
-// With USE_CACHE
-var s = new Serializer(true);
-var obj = { x : 5, y : null };
-obj.self = obj;
-s.run(obj); // output : "oy1:xi5y1:yny4:selfr0g"
-```
-```js
-// Enum serialization :
-class SampleEnum extends Enum {
-	static __construct__ = ['Enum1', 'Enum2'];
-	static Enum1() = new this('Enum1', 0);
-	static Enum2(args) {
-		return new this('Enum2', 1, args);
-	}
-}
-SampleEnum.resolve();
-
-Serializer.serialize(SampleEnum.Enum1); // output : "wy10:SampleEnumy5:Enum1:0"
-
-var s = new Serializer(undefined, true); // With USE_ENUM_INDEX
-s.run(SampleEnum.Enum1); // output : "jy10:SampleEnum:0:0"
+```hx
+// return serialized `data`
+public run(data: Mixed): String
 ```
 
-[01]: /source/index.js
+```hx
+// return a string representation of `v` type (internal function)
+public typeof(v: Mixed): String
+```
+
+```hx
+public cache(type: String, v: Mixed): String | false
+```
+
+```hx
+// return a string representation of `s` (internal function)
+public serializeString(s: String): String
+```
+
+```hx
+// return a string representation of `d` (internal function)
+public serializeDate(d: Date): String
+```
+
+```hx
+// return a string representation of `n` (internal function)
+public serializeNumber(n: Int): String
+```
+
+```hx
+// return a string representation of `o` according to `type` (internal function)
+public serializeObject(o: Object, type: String): String
+```
+
+```hx
+// return a string representation of `e` (internal function)
+public serializeEnum(e: Enum): String
+```
+
+```hx
+// return a string representation of `b` (internal function)
+public serializeBytes(b: Bytes): String
+```
+
+[index]: /source/index.js
+[unittests]: /test/by_serialize.test.js
 [02]: https://api.haxe.org/haxe/Serializer.html
 [03]: https://haxe.org/manual/std-serialization-format.html
