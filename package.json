@@ -1,6 +1,6 @@
 {
 	"name": "haxe-serializer",
-	"version": "0.0.1",
+	"version": "0.0.8",
 	"description": "An implementation of haxe.Serializer",
 	"main": "source/index.js",
 	"scripts": {
@@ -20,8 +20,8 @@
 	},
 	"homepage": "https://github.com/jslba/haxe-serializer",
 	"peerDependencies": {
-		"haxe-basecode": "^0.0.1",
-		"haxe-type": "^0.0.1"
+		"haxe-basecode": "^0.0.8",
+		"haxe-type": "^0.0.8"
 	},
 	"devDependencies": {
 		"jest": "^29.4.3"
